@@ -16,6 +16,9 @@ shr MyClass myObj; // 'shr' is optional here since it is the default
 unq MyClass myObj;
 wk MyClass myObj;
 
+// can also make smart pointers of primitive types - but it is not the default
+shr int myInt;
+
 // manual memory management syntax
 mnl MyClass myObj; // not a pointer
 mnl MyClass *myObj;

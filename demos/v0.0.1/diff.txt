@@ -18,8 +18,11 @@ shr MyClass myObj; // 'shr' is optional here since it is the default          | 
 unq MyClass myObj;                                                            | std::unique_ptr<MyClass> myObj; 
 wk MyClass myObj;                                                             | std::weak_ptr<MyClass> myObj; 
 
-// manual pointer syntax                                                        // manual pointer syntax
-mnl MyClass myObj;                                                            | MyClass myObj; 
+// can also make smart pointers of primitive types - but it is not the defaul   // can also make smart pointers of primitive types - but it is not the defaul
+shr int myInt;                                                                | std::shared_ptr<int> myInt; 
+
+// manual memory management syntax                                              // manual memory management syntax
+mnl MyClass myObj; // not a pointer                                           | MyClass myObj; // not a pointer
 mnl MyClass *myObj;                                                           | MyClass * myObj; 
 mnl MyClass *const myObj;                                                     | MyClass *const  myObj; 
 mnl MyClass **const *const **const myObj;                                     | MyClass **const *const **const  myObj; 
@@ -30,9 +33,8 @@ mnl MyClass **const *const **const myObj;                                     | 
 
 // Zyra has two keywords for managing mutability, 'const' and 'immut'.          // Zyra has two keywords for managing mutability, 'const' and 'immut'.
 // immut refers to the object's mutability, const refers to the pointer's       // immut refers to the object's mutability, const refers to the pointer's
-// mutable                                                                      // mutable
+// mutability.                                                                  // mutability.
+// the 'immut' keyword cannot be used with the 'mnl' keyword.                   // the 'immut' keyword cannot be used with the 'mnl' keyword.
 const MyClass myObj; // constant pointer to a mutable object                  | const std::shared_ptr<MyClass> myObj; // constant pointer to a mutable object
 immut MyClass myObj; // mutable pointer to a constant object                  | std::shared_ptr<const MyClass> myObj; // mutable pointer to a constant object
 const immut MyClass myObj; // constant pointer to a constant object           | const std::shared_ptr<const MyClass> myObj; // constant pointer to a constant
-
-// note that 'immut' and 'mnl' cannot be used together.                         // note that 'immut' and 'mnl' cannot be used together.

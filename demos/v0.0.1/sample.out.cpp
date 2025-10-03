@@ -18,8 +18,11 @@ std::shared_ptr<MyClass> myObj; // 'shr' is optional here since it is the defaul
 std::unique_ptr<MyClass> myObj; 
 std::weak_ptr<MyClass> myObj; 
 
-// manual pointer syntax
-MyClass myObj; 
+// can also make smart pointers of primitive types - but it is not the default
+std::shared_ptr<int> myInt; 
+
+// manual memory management syntax
+MyClass myObj; // not a pointer
 MyClass * myObj; 
 MyClass *const  myObj; 
 MyClass **const *const **const  myObj; 
@@ -30,9 +33,8 @@ MyClass **const *const **const  myObj;
 
 // Zyra has two keywords for managing mutability, 'const' and 'immut'.
 // immut refers to the object's mutability, const refers to the pointer's
-// mutable
+// mutability.
+// the 'immut' keyword cannot be used with the 'mnl' keyword.
 const std::shared_ptr<MyClass> myObj; // constant pointer to a mutable object
 std::shared_ptr<const MyClass> myObj; // mutable pointer to a constant object
 const std::shared_ptr<const MyClass> myObj; // constant pointer to a constant object
-
-// note that 'immut' and 'mnl' cannot be used together.
