@@ -16,8 +16,8 @@ shr MyClass myObj; // 'shr' is optional here since it is the default
 unq MyClass myObj;
 wk MyClass myObj;
 
-// manual pointer syntax
-mnl MyClass myObj;
+// manual memory management syntax
+mnl MyClass myObj; // not a pointer
 mnl MyClass *myObj;
 mnl MyClass *const myObj;
 mnl MyClass **const *const **const myObj;
@@ -28,9 +28,8 @@ mnl MyClass **const *const **const myObj;
 
 // Zyra has two keywords for managing mutability, 'const' and 'immut'.
 // immut refers to the object's mutability, const refers to the pointer's
-// mutable
+// mutability.
+// the 'immut' keyword cannot be used with the 'mnl' keyword.
 const MyClass myObj; // constant pointer to a mutable object
 immut MyClass myObj; // mutable pointer to a constant object
 const immut MyClass myObj; // constant pointer to a constant object
-
-// note that 'immut' and 'mnl' cannot be used together.

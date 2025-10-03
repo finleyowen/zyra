@@ -1,5 +1,7 @@
 # Zyra - Syntactic Sugar for C++
 
+Zyra is a toy compiler that provides some nice syntactic sugar over C++. It compiles into C++. Currently, the Zyra compiler just accepts Zyra code from `stdin` and outputs C++ code to `stdout`.
+
 ## Demonstration
 
 Check out the [demo program](./demos/v0.0.1/sample.in.z) and it's [compiled C++ output](./demos/v0.0.1/sample.out.cpp), or check out the [side-by-side comparison](./demos/v0.0.1/diff.txt) to get an idea of the sorts of syntactic sugars supported by Zyra. 
