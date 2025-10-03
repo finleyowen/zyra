@@ -1,0 +1,36 @@
+// we'll use this class declaration to demonstrate some syntactic sugars
+class MyClass;
+
+// =================
+// memory management
+// =================
+
+// objects are stored as shared pointers by default
+MyClass myObj;
+
+// primitive types are *not* stored as pointers by default
+int myInt;
+
+// smart pointer syntax
+shr MyClass myObj; // 'shr' is optional here since it is the default
+unq MyClass myObj;
+wk MyClass myObj;
+
+// manual pointer syntax
+mnl MyClass myObj;
+mnl MyClass *myObj;
+mnl MyClass *const myObj;
+mnl MyClass **const *const **const myObj;
+
+// ==========
+// mutability
+// ==========
+
+// Zyra has two keywords for managing mutability, 'const' and 'immut'.
+// immut refers to the object's mutability, const refers to the pointer's
+// mutable
+const MyClass myObj; // constant pointer to a mutable object
+immut MyClass myObj; // mutable pointer to a constant object
+const immut MyClass myObj; // constant pointer to a constant object
+
+// note that 'immut' and 'mnl' cannot be used together.

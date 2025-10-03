@@ -1,0 +1,10 @@
+lexer.c
+lexer.h
+lexer.o
+list.o
+main.o
+parser.c
+parser.h
+parser.o
+types.o
+zc
