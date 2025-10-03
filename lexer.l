@@ -46,6 +46,6 @@ notword = [^A-Za-z0-9_]
 	return IDENT;
 }
 "//".* { fprintf(outfile, "%s", yytext); }
-[ ]+ { /* ignore */ }
 [\t\n]+ { fprintf(outfile, "%s", yytext); }
+[ ]+ { /* ignore */ }
 %%

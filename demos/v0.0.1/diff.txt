@@ -9,24 +9,24 @@ class MyClass;                                                                  
 // =================                                                            // =================
 
 // objects are stored as shared pointers by default                             // objects are stored as shared pointers by default
-MyClass myObj;                                                                | std::shared_ptr<MyClass> myObj; 
+MyClass myObj1;                                                               | std::shared_ptr<MyClass> myObj1; 
 
 // primitive types are *not* stored as pointers by default                      // primitive types are *not* stored as pointers by default
-int myInt;                                                                      int myInt; 
+int myInt1;                                                                     int myInt1; 
 
 // smart pointer syntax                                                         // smart pointer syntax
-shr MyClass myObj; // 'shr' is optional here since it is the default          | std::shared_ptr<MyClass> myObj; // 'shr' is optional here since it is the def
-unq MyClass myObj;                                                            | std::unique_ptr<MyClass> myObj; 
-wk MyClass myObj;                                                             | std::weak_ptr<MyClass> myObj; 
+shr MyClass myObj2; // 'shr' is optional here since it is the default         | std::shared_ptr<MyClass> myObj2; // 'shr' is optional here since it is the de
+unq MyClass myObj3;                                                           | std::unique_ptr<MyClass> myObj3; 
+wk MyClass myObj4;                                                            | std::weak_ptr<MyClass> myObj4; 
 
 // can also make smart pointers of primitive types - just not by default        // can also make smart pointers of primitive types - just not by default
-shr int myInt;                                                                | std::shared_ptr<int> myInt; 
+shr int myInt2;                                                               | std::shared_ptr<int> myInt2; 
 
 // manual memory management syntax                                              // manual memory management syntax
-mnl MyClass myObj; // not a pointer                                           | MyClass myObj; // not a pointer
-mnl MyClass *myObj;                                                           | MyClass * myObj; 
-mnl MyClass *const myObj;                                                     | MyClass *const myObj; 
-mnl MyClass **const *const **const myObj;                                     | MyClass **const*const**const myObj; 
+mnl MyClass myObj5; // not a pointer                                          | MyClass myObj5; // not a pointer
+mnl MyClass *myObj6;                                                          | MyClass * myObj6; 
+mnl MyClass *const myObj7;                                                    | MyClass *const myObj7; 
+mnl MyClass **const *const **const myObj8;                                    | MyClass **const*const**const myObj8; 
 
 // ==========                                                                   // ==========
 // mutability                                                                   // mutability
@@ -36,6 +36,6 @@ mnl MyClass **const *const **const myObj;                                     | 
 // immut refers to the object's mutability, const refers to the pointer's       // immut refers to the object's mutability, const refers to the pointer's
 // mutability.                                                                  // mutability.
 // the 'immut' keyword cannot be used with the 'mnl' keyword.                   // the 'immut' keyword cannot be used with the 'mnl' keyword.
-const MyClass myObj; // constant pointer to a mutable object                  | const std::shared_ptr<MyClass> myObj; // constant pointer to a mutable object
-immut MyClass myObj; // mutable pointer to a constant object                  | std::shared_ptr<const MyClass> myObj; // mutable pointer to a constant object
-const immut MyClass myObj; // constant pointer to a constant object           | const std::shared_ptr<const MyClass> myObj; // constant pointer to a constant
+const MyClass myObj9; // constant pointer to a mutable object                 | const std::shared_ptr<MyClass> myObj9; // constant pointer to a mutable objec
+immut MyClass myObj10; // mutable pointer to a constant object                | std::shared_ptr<const MyClass> myObj10; // mutable pointer to a constant obje
+const immut MyClass myObj11; // constant pointer to a constant object         | const std::shared_ptr<const MyClass> myObj11; // constant pointer to a consta

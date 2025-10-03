@@ -1,0 +1,11 @@
+// we'll use this class declaration to demonstrate some syntactic sugars
+class MyClass;
+
+// functions with primitive types - basically no change from C++
+int f1(int x);
+int f2(int x, int y, int z);
+
+// functions of objects and functions returning objects - same rules as 
+// variables in terms of memory management and mutability
+const immut MyClass f3(MyClass myObj);
+const immut unq MyClass f4(unq MyClass myObj);

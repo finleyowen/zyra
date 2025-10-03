@@ -6,24 +6,24 @@ class MyClass;
 // =================
 
 // objects are stored as shared pointers by default
-MyClass myObj;
+MyClass myObj1;
 
 // primitive types are *not* stored as pointers by default
-int myInt;
+int myInt1;
 
 // smart pointer syntax
-shr MyClass myObj; // 'shr' is optional here since it is the default
-unq MyClass myObj;
-wk MyClass myObj;
+shr MyClass myObj2; // 'shr' is optional here since it is the default
+unq MyClass myObj3;
+wk MyClass myObj4;
 
 // can also make smart pointers of primitive types - just not by default
-shr int myInt;
+shr int myInt2;
 
 // manual memory management syntax
-mnl MyClass myObj; // not a pointer
-mnl MyClass *myObj;
-mnl MyClass *const myObj;
-mnl MyClass **const *const **const myObj;
+mnl MyClass myObj5; // not a pointer
+mnl MyClass *myObj6;
+mnl MyClass *const myObj7;
+mnl MyClass **const *const **const myObj8;
 
 // ==========
 // mutability
@@ -33,6 +33,6 @@ mnl MyClass **const *const **const myObj;
 // immut refers to the object's mutability, const refers to the pointer's
 // mutability.
 // the 'immut' keyword cannot be used with the 'mnl' keyword.
-const MyClass myObj; // constant pointer to a mutable object
-immut MyClass myObj; // mutable pointer to a constant object
-const immut MyClass myObj; // constant pointer to a constant object
+const MyClass myObj9; // constant pointer to a mutable object
+immut MyClass myObj10; // mutable pointer to a constant object
+const immut MyClass myObj11; // constant pointer to a constant object
