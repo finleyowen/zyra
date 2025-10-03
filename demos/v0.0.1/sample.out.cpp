@@ -18,7 +18,7 @@ std::shared_ptr<MyClass> myObj; // 'shr' is optional here since it is the defaul
 std::unique_ptr<MyClass> myObj; 
 std::weak_ptr<MyClass> myObj; 
 
-// can also make smart pointers of primitive types - but it is not the default
+// can also make smart pointers of primitive types - just not by default
 std::shared_ptr<int> myInt; 
 
 // manual memory management syntax

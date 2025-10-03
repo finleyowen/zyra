@@ -13,7 +13,7 @@ class MyClass;" > ./demos/v0.0.1/sample.out.cpp
 
 # generate the side-by-side comparison
 > ./demos/v0.0.1/diff.txt
-diff -y -w --width=160 ./demos/v0.0.1/sample.in.z ./demos/v0.0.1/sample.out.cpp\
+diff -y -w --width=164 ./demos/v0.0.1/sample.in.z ./demos/v0.0.1/sample.out.cpp\
 	> ./demos/v0.0.1/diff0.txt
 expand ./demos/v0.0.1/diff0.txt > ./demos/v0.0.1/diff.txt
 rm ./demos/v0.0.1/diff0.txt

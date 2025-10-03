@@ -18,7 +18,7 @@ shr MyClass myObj; // 'shr' is optional here since it is the default          | 
 unq MyClass myObj;                                                            | std::unique_ptr<MyClass> myObj; 
 wk MyClass myObj;                                                             | std::weak_ptr<MyClass> myObj; 
 
-// can also make smart pointers of primitive types - but it is not the defaul   // can also make smart pointers of primitive types - but it is not the defaul
+// can also make smart pointers of primitive types - just not by default        // can also make smart pointers of primitive types - just not by default
 shr int myInt;                                                                | std::shared_ptr<int> myInt; 
 
 // manual memory management syntax                                              // manual memory management syntax
