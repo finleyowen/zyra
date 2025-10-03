@@ -72,7 +72,7 @@ void codegenLvlsConst(FILE *f, const struct List *lvlsConst)
 		bool *isConst = (bool *)node->data;
 		if (*isConst)
 		{
-			fprintf(f, "*const ");
+			fprintf(f, "*const");
 		}
 		else
 		{
@@ -151,16 +151,23 @@ void codegenFnDec(FILE *f, const struct FnDec *fnDec)
 {
 	codegenVarDec(f, fnDec->varDec);
 	fprintf(f, "(");
-	for (struct ListNode *ln = fnDec->paramDecs->head;
-		 ln != NULL;
-		 ln = ln->next)
+	if (fnDec->paramDecs)
 	{
-		struct VarDec *paramDec = (struct VarDec *)ln->data;
-		codegenVarDec(f, paramDec);
-		if (ln->next)
+		for (struct ListNode *ln = fnDec->paramDecs->head;
+			 ln != NULL;
+			 ln = ln->next)
 		{
-			fprintf(f, ", ");
+			struct VarDec *paramDec = (struct VarDec *)ln->data;
+			codegenVarDec(f, paramDec);
+			if (ln->next)
+			{
+				fprintf(f, ", ");
+			}
 		}
+	}
+	else
+	{
+		fprintf(f, "void");
 	}
 	fprintf(f, ")");
 }
@@ -219,6 +226,11 @@ void freeVarDecFromVoidPtr(void *ptr)
 void freeFnDec(struct FnDec *fnDec)
 {
 	freeVarDec(fnDec->varDec);
-	freeList(fnDec->paramDecs, freeVarDecFromVoidPtr);
+
+	if (fnDec->paramDecs)
+	{
+		freeList(fnDec->paramDecs, freeVarDecFromVoidPtr);
+	}
+
 	free(fnDec);
 }

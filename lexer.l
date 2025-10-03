@@ -17,6 +17,14 @@ notword = [^A-Za-z0-9_]
 "+" { return PLUS; }
 "-" { return MINUS; }
 "*" { return ASTERISK; }
+"," { return COMMA; }
+
+"(" { return OPAREN; }
+")" { return CPAREN; }
+"{" { return OBRACE; }
+"}" { return CBRACE; }
+"[" { return OSQUBR; }
+"]" { return CSQUBR; }
 
 "class" { return CLASS; }
 "struct" { return STRUCT; }

@@ -24,8 +24,8 @@ shr int myInt;                                                                | 
 // manual memory management syntax                                              // manual memory management syntax
 mnl MyClass myObj; // not a pointer                                           | MyClass myObj; // not a pointer
 mnl MyClass *myObj;                                                           | MyClass * myObj; 
-mnl MyClass *const myObj;                                                     | MyClass *const  myObj; 
-mnl MyClass **const *const **const myObj;                                     | MyClass **const *const **const  myObj; 
+mnl MyClass *const myObj;                                                     | MyClass *const myObj; 
+mnl MyClass **const *const **const myObj;                                     | MyClass **const*const**const myObj; 
 
 // ==========                                                                   // ==========
 // mutability                                                                   // mutability

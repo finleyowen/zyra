@@ -24,8 +24,8 @@ std::shared_ptr<int> myInt;
 // manual memory management syntax
 MyClass myObj; // not a pointer
 MyClass * myObj; 
-MyClass *const  myObj; 
-MyClass **const *const **const  myObj; 
+MyClass *const myObj; 
+MyClass **const*const**const myObj; 
 
 // ==========
 // mutability

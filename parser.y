@@ -59,6 +59,12 @@ void appendBoolToList(struct List *ls, bool b) {
 %token EXTRACTION
 %token DOT
 
+// brackets and things
+%token OPAREN CPAREN // ()
+%token OBRACE CBRACE // {}
+%token OSQUBR CSQUBR // []
+%token OANGBR CANGBR // <>
+
 // end of statement
 %token SEMICOLON
 
@@ -105,12 +111,14 @@ void appendBoolToList(struct List *ls, bool b) {
 
 %type <list>mnl_ptr_dec
 
-%type <vardec>var_dec
 %type <vardec>var_typing
 %type <vardec>var_memory
 %type <vardec>var_immut
 %type <vardec>var_constant
+%type <vardec>var_dec
 
+%type <list>var_dec_list
+%type <fndec>fn_dec
 
 %%
 input:
@@ -121,12 +129,21 @@ stmt_list:
   | stmt_list stmt SEMICOLON;
 
 stmt:
-  var_dec { codegenVarDec(outfile, $1); printf("; "); freeVarDec($1); }
-  | class_dec
+  var_dec { codegenVarDec(outfile, $1); fprintf(outfile, "; "); freeVarDec($1); }
+  | fn_dec { codegenFnDec(outfile, $1); fprintf(outfile, "; "); freeFnDec($1); }
+  | class_dec { /* todo */ }
   | QUIT { printf("Exiting gracefully.\n"); exit(EXIT_SUCCESS); }
   ;
 
 class_dec: CLASS IDENT { fprintf(outfile, "class %s;", $2); }
+  ;
+
+fn_dec: var_dec OPAREN CPAREN { $$ = newFnDec($1, NULL); }
+  | var_dec OPAREN var_dec_list CPAREN { $$ = newFnDec($1, $3); }
+  ;
+
+var_dec_list: var_dec { $$ = newList(); appendToList($$, $1); }
+  | var_dec_list COMMA var_dec { $$ = $1; appendToList($$, $3); }
   ;
 
 var_dec: var_constant { $$ = $1; }
