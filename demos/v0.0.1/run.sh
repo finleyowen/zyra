@@ -18,9 +18,9 @@ class MyClass;" > $DEMO_OUTFILE
 ./zc < $DEMO_INFILE > $DEMO_OUTFILE
 
 # generate the side-by-side comparison
-> $DEMO_DIFF
+echo "/* Side by side comparison of Zyra code (left) with C++ code (right) */" > $DEMO_DIFF
 diff -y -w --width=164 $DEMO_INFILE $DEMO_OUTFILE > $DEMO_DIFF_TMP
-expand $DEMO_DIFF_TMP > $DEMO_DIFF
+expand $DEMO_DIFF_TMP >> $DEMO_DIFF
 
 # remove temp file
 rm $DEMO_DIFF_TMP

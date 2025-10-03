@@ -1,3 +1,4 @@
+/* Side by side comparison of Zyra code (left) with C++ code (right) */
                                                                               > #include <memory>
                                                                               >
 // we'll use this class declaration to demonstrate some syntactic sugars        // we'll use this class declaration to demonstrate some syntactic sugars
