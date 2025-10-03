@@ -7,3 +7,7 @@ Sample Programs for every generation of Zyra.
 - Variable declarations
 - Memory management
 - Mutability
+
+## [v0.0.2](./v0.0.2/sample.in.z)
+
+- Function declarations
